@@ -5,3 +5,5 @@ export * from './dashboard/DashboardButtonsContainer';
 export * from './dashboard/DashboardSummaryContainer';
 export * from './dashboard/DashboardSummaryItem';
 export * from './logo/Logo';
+export * from './header/Header';
+export * from './layouts/MainLayout';

@@ -14,7 +14,7 @@ export const DashboardScreen = () => {
 
       <DashboardButtonsContainer />
 
-      <Navbar />
+      <Navbar styles={styles.bottomNavDashboard}/>
     </View>
   );
 };

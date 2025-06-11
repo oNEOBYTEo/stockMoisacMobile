@@ -1,32 +1,43 @@
-import {View} from 'react-native';
-import {styles} from '../../themes/global.styles';
-import {NavbarItem} from './NavbarItem';
+import { View } from 'react-native';
+import { NavbarItem } from './NavbarItem';
+import { RootStackParamList } from '../../../App';
 
-type AllowedIcons = {
-  'home-outline': string;
-  'grid-outline': string;
-  'cube-outline': string;
-  'notifications-outline': string;
-  'person-outline': string;
+type IconType = 
+  | 'home-outline'
+  | 'cube-outline'
+  | 'grid-outline'
+  | 'notifications-outline'
+  | 'person-outline';
+
+type NavbarItemConfig = {
+  icon: IconType;
+  text: string;
+  destination: keyof RootStackParamList;
 };
 
-const items: AllowedIcons = {
-  'home-outline': 'Home',
-  'cube-outline': 'Pedidos',
-  'grid-outline': 'Productos',
-  'notifications-outline': 'Alertas',
-  'person-outline': 'Perfil',
-};
+interface Props {
+  styles: any
+}
 
-export const Navbar = () => {
+const items: NavbarItemConfig[] = [
+  { icon: 'home-outline', text: 'Inicio', destination: 'Dashboard' },
+  { icon: 'cube-outline', text: 'Pedidos', destination: 'Orders' },
+  { icon: 'grid-outline', text: 'Productos', destination: 'Products' },
+  { icon: 'notifications-outline', text: 'Alertas', destination: 'Alerts' },
+  { icon: 'person-outline', text: 'Perfil', destination: 'Profile' },
+];
+
+
+export const Navbar = ({styles}: Props) => {
   return (
-    <View style={styles.bottomNav}>
-      {Object.entries(items).map(([iconSource, text]) => (
+    <View style={styles}>
+      {items.map(({ icon, text, destination }) => (
         <NavbarItem
-          key={iconSource + text}
+          key={icon + text}
           size={22}
-          source={iconSource}
+          source={icon}
           text={text}
+          destination={destination}
         />
       ))}
     </View>

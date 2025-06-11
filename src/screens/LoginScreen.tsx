@@ -19,7 +19,7 @@ export const LoginScreen = () => {
       <Logo styles={styles.logo} />
       
       <TextInput
-        label="Email"
+        label="Correo Electronico"
         mode="outlined"
         value={email}
         onChangeText={setEmail}
@@ -29,7 +29,7 @@ export const LoginScreen = () => {
       />
 
       <TextInput
-        label="Password"
+        label="Contraseña"
         mode="outlined"
         value={password}
         onChangeText={setPassword}
@@ -39,15 +39,15 @@ export const LoginScreen = () => {
 
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('Dashboard')}
+        onPress={() => navigation.navigate('Login')}
         style={styles.button}
         labelStyle={styles.buttonText}
       >
-        Login
+        Ingresar
       </Button>
 
       <TouchableOpacity onPress={() => console.log('Forgot Password')}>
-        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        <Text style={styles.forgotPassword}>Olvidaste la contraseña?</Text>
       </TouchableOpacity>
     </View>
   );

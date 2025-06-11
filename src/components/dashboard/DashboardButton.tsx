@@ -12,12 +12,13 @@ interface Props {
   size: number;
   source: string;
   text: string;
+  destination: keyof RootStackParamList;
 }
 
-export const DashboardButton = ({size, source, text}: Props) => {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+export const DashboardButton = ({size, source, text, destination}: Props) => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
-    <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('Login')}>
+    <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate(destination)}>
       <Icon size={size} source={source} color={COLORS.mainColor} />
       <Text style={styles.cardText}>{capitalizeEachWord(text)}</Text>
     </TouchableOpacity>

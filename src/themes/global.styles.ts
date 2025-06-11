@@ -4,8 +4,9 @@ import {DefaultTheme} from 'react-native-paper';
 export const COLORS = {
   mainColor: '#0b274b',
   secondaryColor: '#5AABFC',
-  backgroundColor: '#fff'
-}
+  backgroundColor: '#fff',
+  navBarItemColor: '#777',
+};
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,10 +21,37 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.backgroundColor,
     alignItems: 'center',
   },
+  containerScrollView: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundColor,
+    width: '100%',
+    paddingHorizontal: 40,
+    paddingTop: 20,
+  },
+  containerContentPages: {
+    flex: 1,
+    backgroundColor: COLORS.backgroundColor,
+    alignItems: 'flex-start',
+  },
   logo: {
     width: '100%',
     height: 150,
     marginBottom: 32,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'flex-end',
+    borderBottomWidth: 1,
+    borderColor: COLORS.mainColor,
+    width: '100%',
+    backgroundColor: COLORS.backgroundColor,
+    paddingVertical: 10,
+    height: 92,
+  },
+  headerTitle: {
+    fontWeight: 500,
+    fontSize: 32,
   },
   logoDashboard: {
     width: 280,
@@ -59,7 +87,7 @@ export const styles = StyleSheet.create({
   statusBox: {
     borderWidth: 1,
     borderColor: COLORS.mainColor,
-    borderRadius: 10,
+    borderRadius: 8,
     padding: 20,
     width: '85%',
     marginBottom: 30,
@@ -85,7 +113,7 @@ export const styles = StyleSheet.create({
   cardButton: {
     borderWidth: 1,
     borderColor: COLORS.mainColor,
-    borderRadius: 10,
+    borderRadius: 8,
     padding: 20,
     alignItems: 'center',
     width: '40%',
@@ -96,9 +124,18 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 10,
   },
-  bottomNav: {
+  bottomNavDashboard: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderTopWidth: 1,
+    borderColor: COLORS.mainColor,
+    width: '100%',
+    backgroundColor: COLORS.backgroundColor,
+    paddingVertical: 10,
     bottom: 0,
+  },
+  bottomNav: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopWidth: 1,
@@ -115,6 +152,61 @@ export const styles = StyleSheet.create({
     marginTop: 4,
     fontWeight: 700,
   },
+  list: {
+    gap: 16,
+    paddingBottom: 20,
+    flexGrow: 1,
+  },
+  card: {
+    borderWidth: 1,
+    borderColor: COLORS.mainColor,
+    borderRadius: 8,
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 131,
+  },
+  cardAlerts: {
+    borderWidth: 1,
+    borderColor: COLORS.mainColor,
+    borderRadius: 8,
+    padding: 16,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    minHeight: 131,
+    gap: 12,
+  },
+  productName: {
+    fontWeight: 500,
+    fontSize: 30,
+  },
+  productQuantity: {
+    fontSize: 20,
+  },
+  businessName: {
+    fontWeight: 500,
+    fontSize: 30,
+    marginBottom: 4,
+  },
+  businessEmail: {
+    fontSize: 20,
+    color: COLORS.navBarItemColor,
+    marginBottom: 32,
+  },
+  darkModeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderColor: COLORS.mainColor,
+    borderRadius: 8,
+    paddingVertical: 18,
+    paddingHorizontal: 16,
+  },
+  darkModeText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
 
 export const theme = {
@@ -123,6 +215,7 @@ export const theme = {
     ...DefaultTheme.colors,
     primary: COLORS.secondaryColor,
     outline: COLORS.mainColor,
+    background: COLORS.backgroundColor,
   },
   roundness: 8,
 };

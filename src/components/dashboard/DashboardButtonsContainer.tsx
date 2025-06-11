@@ -1,26 +1,39 @@
-import {View} from 'react-native';
-import {styles} from '../../themes/global.styles';
-import {DashboardButton} from './DashboardButton';
+import { View } from 'react-native';
+import { styles } from '../../themes/global.styles';
+import { DashboardButton } from './DashboardButton';
+import { RootStackParamList } from '../../../App';
 
-type AllowedIcons = {
-  cube: string;
-  grid: string;
+type DashboardItemKey = 'cube' | 'grid';
+
+type DashboardItem = {
+  icon: DashboardItemKey;
+  text: string;
+  destination: keyof RootStackParamList;
 };
 
-const items: AllowedIcons = {
-  cube: 'productos',
-  grid: 'pedidos',
-};
+const dashboardItems: DashboardItem[] = [
+  {
+    icon: 'cube',
+    text: 'productos',
+    destination: 'Products',
+  },
+  {
+    icon: 'grid',
+    text: 'pedidos',
+    destination: 'Orders',
+  },
+];
 
 export const DashboardButtonsContainer = () => {
   return (
     <View style={styles.buttonsContainer}>
-      {Object.entries(items).map(([iconSource, text]) => (
+      {dashboardItems.map(({ icon, text, destination }) => (
         <DashboardButton
-          key={iconSource + text}
+          key={icon}
           size={55}
-          source={iconSource}
+          source={icon}
           text={text}
+          destination={destination}
         />
       ))}
     </View>
